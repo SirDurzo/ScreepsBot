@@ -1,0 +1,19 @@
+//memory objects
+Memory.creeps.Worker1.role = 'harvester';
+
+//creep types
+
+Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'Harvester1', { role: 'harvester' } );
+Game.spawns.Spawn1.createCreep( [WORK, WORK, CARRY, MOVE], 'Builder1', {role: 'builder'} );
+Game.spawns.Spawn1.createCreep( [TOUGH, ATTACK, MOVE, MOVE], 'Guard1', { role: 'guard' } );
+Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'Upgrade1', { role: 'upgrade' } );
+
+Bodypart cost:
+MOVE - 50
+WORK - 100
+CARRY - 50
+ATTACK - 80
+RANGED_ATTACK - 150
+HEAL - 250
+TOUGH - 10
+
