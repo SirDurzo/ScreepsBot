@@ -1,6 +1,7 @@
-var harvester = require('harvesters');
-var guard = require('guards');
-var builder = require('builders');
+var harvester = require('harvester');
+var guard = require('guard');
+var builder = require('builder');
+var upgrade = require('upgrade')
 
 for(var name in Game.creeps) {
 	var creep = Game.creeps[name];
@@ -15,5 +16,8 @@ for(var name in Game.creeps) {
 	
 	if(creep.memory.role == 'guard') {
 	    guard(creep);
+	}
+	if(creep.memory.role == 'upgrade') {
+	    upgrade(creep);
 	}
 }
