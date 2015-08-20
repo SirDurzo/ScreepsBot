@@ -1,3 +1,4 @@
+
 var harvester = require('harvester');
 var collector = require('collector');
 var guard = require('guard');
@@ -32,4 +33,3 @@ for(var name in Game.creeps) {
 	    sysinitharvester(creep);
 	}
 }
-
