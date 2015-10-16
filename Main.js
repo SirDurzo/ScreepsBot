@@ -5,7 +5,15 @@ var guard = require('guard');
 var builder = require('builder');
 var upgrade = require('upgrade');
 var jobs = require('jobs');
-var sysinitharvester = require('sysinitharvester');
+var initharvester = require('initharvester');
+
+for (var name in Memory.creeps) {
+    //console.log(Memory.creeps[name]);
+    if (!Game.creeps[name]) {
+        delete Memory.creeps[name];
+        console.log('Creep ' + name + ' memory deleted');
+    }
+}
 
 if(!Game.spawns.Spawn1.spawning) {
     jobs();
@@ -29,7 +37,7 @@ for(var name in Game.creeps) {
 	if(creep.memory.role == 'collector') {
 	    collector(creep);
 	}
-	if(creep.memory.role == 'sysinitharvester') {
-	    sysinitharvester(creep);
+	if(creep.memory.role == 'initharvester') {
+	    initharvester(creep);
 	}
 }
