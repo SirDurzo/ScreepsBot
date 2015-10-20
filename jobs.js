@@ -24,25 +24,25 @@ Memory.count = (Memory.count || 0) + 1;
 
 	 if (countInitharvester < 2 && countHarvester <= 1)  {
 		var result = Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'InitHarvester' + Memory.count, { role: 'initharvester' } ) ;
-		console.log(" Spawning Initial Harvester - " + (countInitharvester + 1) + " of 3 result: " + result);
+		//console.log(" Spawning Initial Harvester - " + (countInitharvester + 1) + " of 3 result: " + result);
 		return;
 		}
 
 	else if (countHarvester < 2) {
-		var result = Game.spawns.Spawn1.createCreep( [WORK, WORK,WORK, MOVE], 'Harvester' + Memory.count, { role: 'harvester' } );
-		console.log(" Spawning Harvester - " + (countHarvester +1) + " of 3 result: " + result);
+		var result = Game.spawns.Spawn1.createCreep( [WORK ,WORK, MOVE], 'Harvester' + Memory.count, { role: 'harvester' } );
+		//console.log(" Spawning Harvester - " + (countHarvester +1) + " of 3 result: " + result);
 		return;
 		}
 			
 	else if (countCollector < 3) {
 		var result = Game.spawns.Spawn1.createCreep( [CARRY, MOVE, CARRY, MOVE], 'Collector' + Memory.count, { role: 'collector' } );
-        console.log(" Spawning Collector - " + (countCollector +1) + " of 3 result: " + result);
+        //console.log(" Spawning Collector - " + (countCollector +1) + " of 3 result: " + result);
 		return;
 	}
     
 	else if (countUpgrade < 2) {
-		var result = Game.spawns.Spawn1.createCreep( [WORK, CARRY, WORK, MOVE], 'Upgrade' + Memory.count, { role: 'upgrade' } );
-		console.log(" Spawning Upgrader - " + (countUpgrade +1) + " of 3 result: " + result) + ")";
+		var result = Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'Upgrade' + Memory.count, { role: 'upgrade' } );
+		//console.log(" Spawning Upgrader - " + (countUpgrade +1) + " of 3 result: " + result) + ")";
 		return;
 	}
 
@@ -56,8 +56,8 @@ Memory.count = (Memory.count || 0) + 1;
 
 
 	else if (countBuilder < 3) {
-		var result = Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE, MOVE], 'Builder' + Memory.count, { role: 'builder'} );
-		console.log(" Spawning Builder - " + (countBuilder +1) + " of 3 result: " + result);
+		var result = Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'Builder' + Memory.count, { role: 'builder'} );
+		//console.log(" Spawning Builder - " + (countBuilder +1) + " of 3 result: " + result);
 		return;
 	}
 }
