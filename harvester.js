@@ -1,17 +1,20 @@
 module.exports = function (creep) {
  
- var sources = creep.room.find(FIND_SOURCES);
+ var gameSources = creep.room.find(FIND_SOURCES);
  
- if (typeof creep.room.memory.sources === 'undefined'){
+ //console.log(creep.room.memory.sources);
  
+ if (creep.room.memory.sources.length === 0){
+ //console.log("harvester - in If Statement");
+ 	 
   creep.room.memory.sources = [];
-  for (var i in sources){
-    console.log(sources[i]);  
-    creep.room.memory.sources.push(sources[i]);
+  for (var i in gameSources){
+    //console.log(gameSources[i]);  
+    creep.room.memory.sources.push(gameSources[i]);
   }
  }
 
-    creep.moveTo(sources[0]);
-    creep.harvest(sources[0]);
+    creep.moveTo(gameSources[0]);
+    creep.harvest(gameSources[0]);
     
 }
