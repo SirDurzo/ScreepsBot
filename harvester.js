@@ -11,10 +11,33 @@ module.exports = function (creep) {
   for (var i in gameSources){
     //console.log(gameSources[i]);  
     creep.room.memory.sources.push(gameSources[i]);
+    creep.room.memory.sources[0].occupants = [];
+	creep.room.memory.sources[1].occupants = [];
   }
  }
 
-    creep.moveTo(gameSources[0]);
-    creep.harvest(gameSources[0]);
-    
+if (creep.room.memory.sources[0].occupants.length){
+
+    creep.room.memory.sources[0].occupants.push(creep.id);
+    creep.room.memory.targetSource = gameSources[0].id;
 }
+
+else if (creep.room.memory.sources[1].occupants === 0){
+	
+    creep.room.memory.sources[1].occupants.push(creep.id)
+    creep.room.memory.targetSource = gameSources[1].id;
+}
+
+	creep.moveTo(Game.getObjectById(creep.room.memory.targetSource));
+    creep.harvest(Game.getObjectById(creep.room.memory.targetSource));
+        
+}
+
+
+/*
+for (var creep in creep.room.memory.sources[1].occupants){
+      if (Game.getObjectById(creep.room.memory.sources[1].occupants[creep]) === null){
+   //do something here to delete the bad item from the array...i'll let you look up how to delete an item from an index
+}
+}
+*/
