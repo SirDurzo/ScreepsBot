@@ -1,7 +1,11 @@
 module.exports = function(creep) {
-    if(creep.energy === 0) {
-			creep.moveTo(Game.spawns.Spawn1);
-			Game.spawns.Spawn1.transferEnergy(creep);
+    
+    if(creep.carry.energy === 0) {
+    	   	var roomStorage = creep.room.find(FIND_MY_STRUCTURES, {
+			filter: { structureType: STRUCTURE_STORAGE } });
+			
+			creep.moveTo(roomStorage);
+			creep.room.storage.transferEnergy(creep);
 		}
 		else {
 			var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
