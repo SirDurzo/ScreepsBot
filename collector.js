@@ -1,5 +1,6 @@
 
-module.exports = function (creep) {
+
+		var spawn = Game.spawns[index];module.exports = function (creep) {
 	var energy = creep.room.find(FIND_DROPPED_ENERGY);
 
 	var extensions = creep.room.find(FIND_MY_STRUCTURES, {
@@ -22,7 +23,6 @@ module.exports = function (creep) {
 	
 	// feed spawns
 	for (var index in Game.spawns) {
-		var spawn = Game.spawns[index];
 
 		if (spawn.energy < spawn.energyCapacity) {
 			creep.moveTo(spawn);
@@ -31,7 +31,7 @@ module.exports = function (creep) {
 		}
 	}
 	
-	// feed extensions
+// feed extensions
 	for (var index in extensions) {
 		var extension = extensions[index];
 
@@ -42,14 +42,20 @@ module.exports = function (creep) {
 		}
 	}
 	
-		// feed storage
-	for (var index in roomStorage) {
-		var myStorage = roomStorage[index];
+// feed storage
 
-		if (myStorage.energy < myStorage.energyCapacity) {
-			creep.moveTo(myStorage);
-			creep.transferEnergy(myStorage);
+	//for (var index in roomStorage) {
+	   //var myStorage = roomStorage[index];
+       // console.log("before storage if")
+       
+		if (creep.room.storage.store.energy < creep.room.storage.storeCapacity) {
+		    
+		    //var storageLog = creep.room.storage;
+		    //console.log("Storage=" + storageLog);
+		    
+			creep.moveTo(creep.room.storage);
+			creep.transferEnergy(creep.room.storage);
 			return;
 		}
-	}
+	//}
 }
